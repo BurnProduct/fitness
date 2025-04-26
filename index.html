@@ -43,28 +43,28 @@
     /* Container dos botões */
     .buttons-container {
       position: fixed;
-      top: 50%; /* Ajuste a posição vertical conforme necessário */
+      top: 50%;
       left: 50%;
       transform: translate(-50%, 0);
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Alinha os itens à esquerda na caixa */
+      align-items: flex-start;
       gap: 10px;
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.6); /* Caixa semi-transparente */
       padding: 20px;
-      border-radius: 16px; /* Bordas arredondadas */
+      border-radius: 16px;
     }
     .buttons-container a {
       text-decoration: none;
-      white-space: nowrap; /* Evita quebra de texto */
+      white-space: nowrap;
     }
     .button {
       background-color: #fff;
       color: #111;
       padding: 10px 20px;
       border: none;
-      border-radius: 12px; /* Botões com cantos arredondados */
+      border-radius: 12px;
       font-size: 1em;
       cursor: pointer;
       display: flex;
@@ -86,7 +86,7 @@
         height: 150vh;
       }
       .buttons-container {
-        top: calc(100vh - 400px); /* Posiciona os botões mais acima em mobile */
+        top: calc(100vh - 400px);
         left: 50%;
         transform: translate(-50%, 0);
       }
@@ -96,7 +96,15 @@
 <body>
   <!-- Vídeo de fundo -->
   <div class="video-bg-container">
-    <video id="bgVideo" autoplay muted>
+    <video
+      id="bgVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="auto"
+    >
       <source src="video-fundo.mp4" type="video/mp4">
       Seu navegador não suporta o elemento de vídeo.
     </video>
@@ -104,25 +112,26 @@
   
   <!-- Container dos botões -->
   <div class="buttons-container">
-    <!-- Botão 1: Catálogo (redireciona para catalogo.html) -->
-    <a href="catalogo.html" class="button">Conheça nossos produtos</a>
-    <!-- Botão 2: WhatsApp -->
-    <a href="https://wa.me/5537999139844" class="button">
-      <i class="fab fa-whatsapp" style="color: green;"></i> Converse com nosso atendente
+    <a href="catalogo.html" class="button">
+      Conheça nossos produtos
     </a>
-    <!-- Botão 3: Instagram -->
+    <a href="https://wa.me/5537999139844" class="button">
+      <i class="fab fa-whatsapp"></i> Converse com nosso atendente
+    </a>
     <a href="https://www.instagram.com/alvinhogoncalves1?igsh=cGJkbWJuN2ltcDFv" class="button">
-      <i class="fab fa-instagram" style="color: red;"></i> Conheça nossa página
+      <i class="fab fa-instagram"></i> Conheça nossa página
     </a>
   </div>
-  
+
   <script>
-    // Ao terminar, o vídeo congela no último frame
-    const bgVideo = document.getElementById('bgVideo');
-    bgVideo.addEventListener('ended', () => {
-      bgVideo.currentTime = bgVideo.duration - 0.1;
-      bgVideo.pause();
-    });
+    // Se preferir congelar no último frame em vez de loop contínuo,
+    // remova o atributo loop no <video> e descomente este bloco:
+
+    // const bgVideo = document.getElementById('bgVideo');
+    // bgVideo.addEventListener('ended', () => {
+    //   bgVideo.currentTime = bgVideo.duration - 0.1;
+    //   bgVideo.pause();
+    // });
   </script>
 </body>
 </html>
