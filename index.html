@@ -23,7 +23,7 @@
       justify-content: center;
       align-items: center;
     }
-    /* Container do vídeo para desktop */
+    /* Container do vídeo */
     .video-bg-container {
       position: fixed;
       top: 25%;
@@ -51,7 +51,7 @@
       align-items: flex-start;
       gap: 10px;
       z-index: 1;
-      background-color: rgba(0, 0, 0, 0.6); /* Caixa semi-transparente */
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
       border-radius: 16px;
     }
@@ -79,7 +79,7 @@
     .button i {
       font-size: 1.2em;
     }
-    /* Ajuste para dispositivos móveis */
+    /* Ajuste para mobile */
     @media (max-width: 800px) {
       .video-bg-container {
         width: 150vw;
@@ -100,7 +100,6 @@
       id="bgVideo"
       autoplay
       muted
-      loop
       playsinline
       webkit-playsinline
       preload="auto"
@@ -124,14 +123,13 @@
   </div>
 
   <script>
-    // Se preferir congelar no último frame em vez de loop contínuo,
-    // remova o atributo loop no <video> e descomente este bloco:
-
-    // const bgVideo = document.getElementById('bgVideo');
-    // bgVideo.addEventListener('ended', () => {
-    //   bgVideo.currentTime = bgVideo.duration - 0.1;
-    //   bgVideo.pause();
-    // });
+    // Congela no último frame quando o vídeo termina
+    const bgVideo = document.getElementById('bgVideo');
+    bgVideo.addEventListener('ended', () => {
+      bgVideo.currentTime = bgVideo.duration - 0.1;
+      bgVideo.pause();
+    });
   </script>
 </body>
 </html>
+
